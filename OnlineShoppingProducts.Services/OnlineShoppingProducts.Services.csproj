@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E28B638-C6EF-486F-83D4-DEC30D280EEF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlineShoppingProducts.Services</RootNamespace>
+    <AssemblyName>OnlineShoppingProducts.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="Commands\IDeleteEntityCommandHandler.cs" />
+    <Compile Include="Commands\User\AddUserCommand.cs" />
+    <Compile Include="Commands\User\AddUserCommandHandler.cs" />
+    <Compile Include="DTOs\BaseDto.cs" />
+    <Compile Include="DTOs\User\UserDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queires\IQuery.cs" />
+    <Compile Include="Queires\IQueryHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineShoppingProducts.Domain\OnlineShoppingProducts.Domain.csproj">
+      <Project>{80734d61-b983-43e6-b26c-08aa3233eb01}</Project>
+      <Name>OnlineShoppingProducts.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineShoppingProducts.Infrastructure.Dapper\OnlineShoppingProducts.Infrastructure.Dapper.csproj">
+      <Project>{4fabedfb-c9f9-49dd-aed8-21feb80c6101}</Project>
+      <Name>OnlineShoppingProducts.Infrastructure.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineShoppingProducts.Infrastructure.NoSql\OnlineShoppingProducts.Infrastructure.NoSql.csproj">
+      <Project>{3773eb04-d1a0-4de6-b440-07a80bcaf17d}</Project>
+      <Name>OnlineShoppingProducts.Infrastructure.NoSql</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
